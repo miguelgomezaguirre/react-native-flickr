@@ -33,6 +33,7 @@ const AlbumList = (props) => {
           albumId={item.id}
       />
     );
+    
 
     if (!photoset) {
       return <Text>Loading...</Text>;

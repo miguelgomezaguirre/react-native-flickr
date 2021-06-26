@@ -25,15 +25,13 @@ const PhotoList = (props) => {
       })
     }, [])
 
-    let renderAlbums = () => {
-      return photos.map((photo) => (
-        <PhotoDetail
-          key={photo.title}
-          title={photo.title}
-          imageUrl={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
+    const renderPhoto = ({item}) => (
+      <PhotoDetail
+        key={item.title}
+        title={item.title}
+        imageUrl={`https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}.jpg`}
         />
-      ));
-    }
+    );
 
     if (!photos) {
       return (
@@ -47,7 +45,7 @@ const PhotoList = (props) => {
       <View style={{flex: 1}}>
         <FlatList
           data={photos}
-          renderItem={renderAlbums}
+          renderItem={renderPhoto}
         />
       </View>
     );
